@@ -11,8 +11,9 @@
   <script type="text/javascript" src="/scripts/softphone.js"></script>
   <script>
   function getProfileId(){
-     sforce.connection.sessionId = window.ApiUtils.getSessionId();
-     sforce.connection.query(
+    console.log('window', window);
+    sforce.connection.sessionId = window.ApiUtils.getSessionId();
+    sforce.connection.query(
        "SELECT ProfileId FROM User WHERE Id = '" + window.UserContext.userId + "'", {
         onSuccess: function(result) {
           console.log(result);

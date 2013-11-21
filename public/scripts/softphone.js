@@ -242,7 +242,7 @@ $(function() {
     ws.onopen    = function()  { console.log('websocket opened'); };
     ws.onclose   = function()  { console.log('websocket closed'); }
     ws.onmessage = function(m) {
-      console.log('websocket message: ' +  m.data);
+      //console.log('websocket message: ' +  m.data);
 
       var result = JSON.parse(m.data);
 
