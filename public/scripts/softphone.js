@@ -22,13 +22,12 @@ $(function() {
 
       } else {
         console.log("error = " + response.error);
-
       }
 
       //TODO: need a way to get here when not inside Salesforce - this is only called in the runApex callback.
       $.get("/token", {"client":SP.username}, function (token) {
-          //alert("got token=" + token);
-          Twilio.Device.setup(token, {debug: true});
+        //alert("got token=" + token);
+        Twilio.Device.setup(token, {debug: true});
       });
 
       SP.functions.startWebSocket();
