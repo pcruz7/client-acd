@@ -13,7 +13,7 @@ $(function() {
 
   SP.functions.getSFDCUserInfo = function () {
     var callback = function (response) {
-      console.log(response);
+      console.log('response', response);
       if (response.result) {
         console.log("result = " + response.result);
         var useresult = response.result;
