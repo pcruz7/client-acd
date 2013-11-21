@@ -10,25 +10,27 @@
   <script src="https://c.na1.visual.force.com/soap/ajax/28.0/connection.js"></script>
   <script type="text/javascript" src="/scripts/softphone.js"></script>
   <script>
-  function getProfileId(){
-    console.log('window', window);
-    sforce.connection.sessionId = window.ApiUtils.getSessionId();
-    sforce.connection.query(
-       "SELECT ProfileId FROM User WHERE Id = '" + window.UserContext.userId + "'", {
-        onSuccess: function(result) {
-          console.log(result);
-          //document.getElementById('lblProfileId').innerHTML = 'Profile Id:' + result.records.ProfileId;
-        },
+  $(function() {
+    function getProfileId(){
+      console.log('window', window);
+      sforce.connection.sessionId = window.ApiUtils.getSessionId();
+      sforce.connection.query(
+         "SELECT ProfileId FROM User WHERE Id = '" + window.UserContext.userId + "'", {
+          onSuccess: function(result) {
+            console.log(result);
+            //document.getElementById('lblProfileId').innerHTML = 'Profile Id:' + result.records.ProfileId;
+          },
 
-        onFailure: function(result){
-          console.log(result);
-          //document.getElementById('lblProfileId').innerHTML = '#ERROR';
+          onFailure: function(result){
+            console.log(result);
+            //document.getElementById('lblProfileId').innerHTML = '#ERROR';
+          }
         }
-      }
-    );
-  }
+      );
+    }
 
-  getProfileId();
+    getProfileId();
+  });
   </script>
 
   <link rel="stylesheet" type="text/css" href="/css/dialer.css">
