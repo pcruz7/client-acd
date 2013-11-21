@@ -13,6 +13,7 @@ $(function() {
 
   SP.functions.getSFDCUserInfo = function () {
     var callback = function (response) {
+      console.log(response);
       if (response.result) {
         console.log("result = " + response.result);
         var useresult = response.result;
@@ -34,7 +35,7 @@ $(function() {
     };
 
     //how  can we tell if sforce works before calling this?
-    sforce.interaction.runApex('UserInfo', 'getUserName', '' ,callback);
+    sforce.interaction.runApex('UserInfo', 'getUserId', '' ,callback);
   }
 
   //1. run sfdc code
